@@ -10,7 +10,7 @@
     </div>
   </header> -->
 
-  <main @click="handleClick">
+  <main>
     <div
       id="game"
       v-bind:level="level"
@@ -20,7 +20,7 @@
   <footer>
     <vue3-simple-typeahead
       id="typeahead_id"
-      :placeholder="searchPlaceholder"
+      placeholder="🔎 Search"
       :items="search"
       :minInputLength="1"
       @selectItem="selectItemEventHandler"
@@ -49,12 +49,8 @@ function selectItemEventHandler(e) {
         .querySelector("#typeahead_id")
         .setAttribute("placeholder", `🔎 No, not ${e} Try again`);
     }, 10);
-
-    searchPlaceholder = "Search for Jamie East";
   }
 }
-let item;
-let searchPlaceholder = "🔎 Search";
 
 // const list = await fetch("./search.json")
 //     .then(response => response.json())
@@ -75,15 +71,6 @@ let search = useSearchStore().items.map((item) => item.name);
 //     .then(json => json)
 let level = ref(1);
 
-function handleClick(e) {
-  console.log(this);
-  level.value++;
-}
-function blurEventHandler(e) {
-  // console.log(aa, this)
-  // debugger;
-  console.log("blurEventHandler", e);
-}
 </script>
 
 <style>
