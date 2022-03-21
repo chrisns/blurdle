@@ -30,7 +30,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "Vue";
+import { ref } from "vue";
 import { useSearchStore } from "./stores/search";
 
 function selectItemEventHandler(e) {
