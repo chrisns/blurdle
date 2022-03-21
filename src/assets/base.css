@@ -52,6 +52,7 @@
 
 body {
   min-height: 100vh;
+  margin:0;
   color: var(--color-text);
   background: var(--color-background);
   transition: color 0.5s, background-color 0.5s;
@@ -70,54 +71,87 @@ header {
 
 header,
 footer {
-  /* position: absolute; */
   left: 0;
   width: 100%;
+  height:10vh;
   background: black;
   z-index: 100;
 }
-
 footer {
   bottom: 0;
+}
+
+#typeahead_id {
+  font-size: 2em;
+  width:100%;
+  height:10vh;
+  border: none;
+  margin:0;
+  padding:0;
+}
+.simple-typeahead .simple-typeahead-list {
+  bottom: 10vh;
+}
+.simple-typeahead .simple-typeahead-list .simple-typeahead-list-item {
+  background-color: var(--color-background) !important;
 }
 
 header h1,
 footer #search {
   font-size:2em;
+  margin:0
+}
+h1 {
+  text-align: center;
+  line-height: 10vh;
+}
+h1 span {
+  color:white;
 }
 
 body {
-  max-width:800px;
+  margin:0;
+  /* max-width:800px; */
 }
 
 #game {
-  display: block !important;
+  display: block;
+  position: relative;
+  z-index: -1;
   width: 100%;
-  height: 90vh;
-  background-size: cover;
+  height:100%;
+  height: 80vh;
+  background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
   background-color: blue;
 }
+#app {
+  display: block;
+  margin:0 auto;
+  max-width:800px;
+
+}
 
 #game[level="1"] {
-  filter: blur(100px);
-}
-#game[level="2"] {
-  filter: blur(90px);
-}
-#game[level="3"] {
-  filter: blur(80px);
-}
-#game[level="4"] {
-  filter: blur(70px);
-}
-#game[level="5"] {
-  filter: blur(60px);
-}
-#game[level="6"] {
   filter: blur(50px);
 }
+#game[level="2"] {
+  filter: blur(40px);
+}
+#game[level="3"] {
+  filter: blur(30px);
+}
+#game[level="4"] {
+  filter: blur(20px);
+}
+#game[level="5"] {
+  filter: blur(10px);
+}
+#game[level="6"] {
+  filter: blur(5px);
+}
+/* 
 #game[level="7"] {
   filter: blur(40px);
 }
@@ -129,4 +163,4 @@ body {
 }
 #game[level="10"] {
   filter: blur(10px);
-}
+} */
