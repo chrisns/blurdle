@@ -1,4 +1,3 @@
-
 <template>
   <header>
     <h1>Blur<span>dle</span></h1>
@@ -12,7 +11,11 @@
   </header> -->
 
   <main @click="handleClick">
-    <div id="game" v-bind:level="level" style="background-image: url(./jamie.jpeg)"></div>
+    <div
+      id="game"
+      v-bind:level="level"
+      style="background-image: url(./jamie.jpeg)"
+    ></div>
   </main>
   <footer>
     <vue3-simple-typeahead
@@ -22,19 +25,18 @@
       :minInputLength="1"
       @selectItem="selectItemEventHandler"
     >
-</vue3-simple-typeahead>
+    </vue3-simple-typeahead>
   </footer>
 </template>
 
 <script setup lang="ts">
-import {ref} from "Vue";
-import {useSearchStore} from "./stores/search";
+import { ref } from "Vue";
+import { useSearchStore } from "./stores/search";
 
 function selectItemEventHandler(e) {
   if (e === "Jamie East") {
     alert("You found Jamie East");
-  }
-  else {
+  } else {
     level.value++;
     // console.log("ff", item)
     setTimeout(() => {
@@ -47,20 +49,18 @@ function selectItemEventHandler(e) {
         .querySelector("#typeahead_id")
         .setAttribute("placeholder", `🔎 No, not ${e} Try again`);
     }, 10);
-    
 
     searchPlaceholder = "Search for Jamie East";
   }
-
 }
-let item
+let item;
 let searchPlaceholder = "🔎 Search";
 
 // const list = await fetch("./search.json")
 //     .then(response => response.json())
 //     .then(json => json);
 
-let search = useSearchStore().items.map(item => item.name);
+let search = useSearchStore().items.map((item) => item.name);
 // console.log("ff",list, list);
 // let search = []
 // fetch("./search.json")
@@ -76,15 +76,14 @@ let search = useSearchStore().items.map(item => item.name);
 let level = ref(1);
 
 function handleClick(e) {
-  console.log(this)
+  console.log(this);
   level.value++;
 }
 function blurEventHandler(e) {
-// console.log(aa, this)
+  // console.log(aa, this)
   // debugger;
   console.log("blurEventHandler", e);
 }
-
 </script>
 
 <style>
