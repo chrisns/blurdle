@@ -1,5 +1,13 @@
 <template>
   <v-app>
+    <v-dialog v-model="dialog">
+      <v-card>
+        <v-card-text>{{ message }} </v-card-text>
+        <v-card-actions>
+          <v-btn color="primary" block @click="dialog = false">OK</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
     <header>
       <h1>Blur<span>dle</span></h1>
     </header>
@@ -34,7 +42,11 @@
             ></v-autocomplete>
           </v-col>
           <v-col cols="1">
-            <v-btn icon="mdi-redo" color="primary"></v-btn>
+            <v-btn
+              icon="mdi-redo"
+              color="primary"
+              @click="incrementLevel"
+            ></v-btn>
           </v-col>
         </v-row>
       </v-container>
@@ -46,17 +58,11 @@
 import { ref } from "vue";
 import { useSearchStore } from "./stores/search";
 
-function foo(e) {
-  // debugger;
-}
-
 function selectItemEventHandler(e) {
-  // alert("cc")
-  console.log(e);
   if (e === "Jamie East") {
-    alert("You found Jamie East");
+    msg("You found Jamie East");
   } else {
-    level.value++;
+    incrementLevel();
     setTimeout(() => {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
@@ -69,16 +75,21 @@ function selectItemEventHandler(e) {
     }, 1);
   }
 }
+function incrementLevel() {
+  if (level.value === 6) msg("It was Jamie East!");
+  else
+  level.value++;
+}
 
 let level = ref(1);
 import search from "./stores/searchdb.json";
 const items = search.map((item) => item.name);
-</script>
 
-<script lang="ts">
-// export default {
-//   data: () => ({
-//     items: search.map((item) => item.name),
-//   }),
-// };
+function msg(text) {
+  message.value = text;
+  dialog.value = true;
+}
+
+let dialog = ref(false);
+let message = ref();
 </script>

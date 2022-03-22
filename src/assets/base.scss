@@ -125,7 +125,6 @@ header h1 {
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
-  background-color: blue;
 
   @for $i from 1 through 6 {
     &[level='#{$i}'] {
@@ -140,7 +139,7 @@ footer #level {
   // clear;after
   // grid-column-gap: 5rem;
 
-  @for $i from 1 through 6 {
+  @for $i from 1 through 7 {
     &[level='#{$i}'] {
       @for $d from 1 through $i {
       :nth-child(#{$d}) {
