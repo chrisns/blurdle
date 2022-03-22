@@ -1,5 +1,4 @@
 import { defineStore } from "pinia";
-// const search = require('./search.json')
 import { search } from "./searchdb";
 export const useSearchStore = defineStore({
   id: "search",
@@ -7,14 +6,5 @@ export const useSearchStore = defineStore({
     return {
       items: search,
     };
-  },
-  // ),
-  getters: {
-    // doubleCount: (state) => state.counter * 2
-  },
-  actions: {
-    // increment() {
-    //   this.counter++
-    // }
   },
 });

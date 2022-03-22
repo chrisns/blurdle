@@ -1,13 +1,14 @@
 import { createApp } from "vue";
 import { createPinia } from "pinia";
 import App from "./App.vue";
-import SimpleTypeahead from "vue3-simple-typeahead";
-import "vue3-simple-typeahead/dist/vue3-simple-typeahead.css"; //Optional default CSS
+import "@/assets/base.scss";
+
+import vuetify from "./plugins/vuetify";
 
 const app = createApp(App);
 
 app.use(createPinia());
+app.use(vuetify);
 
-app.use(SimpleTypeahead);
 
 app.mount("#app");

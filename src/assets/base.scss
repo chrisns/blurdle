@@ -52,7 +52,7 @@
 
 body {
   min-height: 100vh;
-  margin:0;
+  margin: 0;
   color: var(--color-text);
   background: var(--color-background);
   transition: color 0.5s, background-color 0.5s;
@@ -67,100 +67,95 @@ body {
 }
 header {
   top: 0;
+  background: var(--color-background);
+  h1 {
+    text-align: center;
+    line-height: 10vh;
+    span {
+      color: var(--color-heading);
+    }
+  }
 }
-
+.v-input {
+  background: var(--color-background);
+  width:100%
+  // color: var(--color-text);
+  input {
+    opacity: 1;
+  }
+}
 header,
 footer {
   left: 0;
   width: 100%;
-  height:10vh;
-  background: black;
+  height: 10vh;
   z-index: 100;
 }
 footer {
   bottom: 0;
 }
 
-#typeahead_id {
+
+// .simple-typeahead .simple-typeahead-list {
+//   bottom: 10vh;
+// }
+// .simple-typeahead .simple-typeahead-list .simple-typeahead-list-item {
+//   background-color: var(--color-background) !important;
+// }
+
+header h1 {
   font-size: 2em;
-  width:100%;
-  height:10vh;
-  border: none;
-  margin:0;
-  padding:0;
-}
-.simple-typeahead .simple-typeahead-list {
-  bottom: 10vh;
-}
-.simple-typeahead .simple-typeahead-list .simple-typeahead-list-item {
-  background-color: var(--color-background) !important;
+  margin: 0;
 }
 
-header h1,
-footer #search {
-  font-size:2em;
-  margin:0
-}
-h1 {
-  text-align: center;
-  line-height: 10vh;
-}
-h1 span {
-  color:white;
+
+#app {
+  display: block;
+  margin: 0 auto;
+  max-width: 800px;
 }
 
-body {
-  margin:0;
-  /* max-width:800px; */
-}
 
 #game {
   display: block;
   position: relative;
-  z-index: -1;
+  // z-index: -1;
   width: 100%;
-  height:100%;
   height: 80vh;
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
   background-color: blue;
-}
-#app {
-  display: block;
-  margin:0 auto;
-  max-width:800px;
 
+  @for $i from 1 through 6 {
+    &[level='#{$i}'] {
+      filter: blur(#{(6-$i) * 10}px);
+    }
+  }
 }
+footer #level {
+  // grid-auto-flow: column;
+  // display: flex;
+  // width:100%;
+  // clear;after
+  // grid-column-gap: 5rem;
 
-#game[level="1"] {
-  filter: blur(50px);
+  @for $i from 1 through 6 {
+    &[level='#{$i}'] {
+      @for $d from 1 through $i {
+      :nth-child(#{$d}) {
+        background-color:red;
+      }
+    }
+    }
+  }
+  div {
+    height: 1em;
+    background: rgba(var(--v-theme-background));
+    // border: rgb(var(--v-theme-surface)) 1px solid;
+    // border-radius: 0.2em;
+  }
 }
-#game[level="2"] {
-  filter: blur(40px);
+.v-input__details {
+  display: none;
 }
-#game[level="3"] {
-  filter: blur(30px);
-}
-#game[level="4"] {
-  filter: blur(20px);
-}
-#game[level="5"] {
-  filter: blur(10px);
-}
-#game[level="6"] {
-  filter: blur(5px);
-}
-/* 
-#game[level="7"] {
-  filter: blur(40px);
-}
-#game[level="8"] {
-  filter: blur(30px);
-}
-#game[level="9"] {
-  filter: blur(20px);
-}
-#game[level="10"] {
-  filter: blur(10px);
-} */

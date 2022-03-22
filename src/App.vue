@@ -1,78 +1,84 @@
 <template>
-  <header>
-    <h1>Blur<span>dle</span></h1>
-  </header>
-  <!-- <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header> -->
-
-  <main>
-    <div
-      id="game"
-      v-bind:level="level"
-      style="background-image: url(./jamie.jpeg)"
-    ></div>
-  </main>
-  <footer>
-    <vue3-simple-typeahead
-      id="typeahead_id"
-      placeholder="🔎 Search"
-      :items="search"
-      :minInputLength="1"
-      @selectItem="selectItemEventHandler"
-    >
-    </vue3-simple-typeahead>
-  </footer>
+  <v-app>
+    <header>
+      <h1>Blur<span>dle</span></h1>
+    </header>
+    <main>
+      <div
+        id="game"
+        :level="level"
+        style="background-image: url(./jamie.jpeg)"
+      ></div>
+    </main>
+    <footer>
+      <v-container>
+        <v-row id="level" :level="level">
+          <v-col
+            class="rounded border-sm"
+            v-for="index in 6"
+            :key="index"
+            cols="2"
+          ></v-col>
+        </v-row>
+        <v-row>
+          <v-col cols="11">
+            <v-autocomplete
+              id="search"
+              :items="items"
+              dense
+              placeholder="🔎 Search"
+              no-details
+              no-data-text="No results found"
+              @update:modelValue="selectItemEventHandler"
+              cache-items
+            ></v-autocomplete>
+          </v-col>
+          <v-col cols="1">
+            <v-btn icon="mdi-redo" color="primary"></v-btn>
+          </v-col>
+        </v-row>
+      </v-container>
+    </footer>
+  </v-app>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
 import { useSearchStore } from "./stores/search";
 
+function foo(e) {
+  // debugger;
+}
+
 function selectItemEventHandler(e) {
+  // alert("cc")
+  console.log(e);
   if (e === "Jamie East") {
     alert("You found Jamie East");
   } else {
     level.value++;
-    // console.log("ff", item)
     setTimeout(() => {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
-      document.querySelector("#typeahead_id").value = "";
+      document.querySelector("#search").value = "";
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       document
-        .querySelector("#typeahead_id")
+        .querySelector("#search")
         .setAttribute("placeholder", `🔎 No, not ${e} Try again`);
-    }, 10);
+    }, 1);
   }
 }
 
-// const list = await fetch("./search.json")
-//     .then(response => response.json())
-//     .then(json => json);
-
-let search = useSearchStore().items.map((item) => item.name);
-// console.log("ff",list, list);
-// let search = []
-// fetch("./search.json")
-//     .then(response => response.json())
-//     .then(json => json)
-//     .then(json => {
-//       console.log(json)
-//       search = json})
-// let list = ref(search)
-// search = fetch("./search.json")
-//     .then(response => response.json())
-//     .then(json => json)
 let level = ref(1);
-
+import search from "./stores/searchdb.json";
+const items = search.map((item) => item.name);
 </script>
 
-<style>
-@import "./assets/base.css";
-</style>
+<script lang="ts">
+// export default {
+//   data: () => ({
+//     items: search.map((item) => item.name),
+//   }),
+// };
+</script>
