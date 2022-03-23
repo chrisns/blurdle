@@ -1,4 +1,5 @@
 [
+  { "name": "Jamie East", "image": "./jamie.jpeg" },
   { "name": "50 Cent" },
   { "name": "Aaliyah" },
   { "name": "Aaron Hernandez" },
@@ -1481,7 +1482,6 @@
   { "name": "James Wong" },
   { "name": "Jamie Carragher" },
   { "name": "Jamie Cullum" },
-  { "name": "Jamie East" },
   { "name": "Jamie Foxx" },
   { "name": "Jamie Lee Curtis" },
   { "name": "Jamie Lynn Spears" },

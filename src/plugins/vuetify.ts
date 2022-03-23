@@ -1,9 +1,7 @@
 import "vuetify/styles";
 import { createVuetify } from "vuetify";
-import { aliases, mdi } from "vuetify/lib/iconsets/mdi";
-import "vuetify/styles"; // Global CSS has to be imported
-
-import "@mdi/font/css/materialdesignicons.css"; // Ensure you are using css-loader
+import "vuetify/styles";
+import { aliases, mdi } from "vuetify/lib/iconsets/mdi-svg";
 
 export default createVuetify({
   theme: {
