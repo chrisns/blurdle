@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "pinia": "2.0.14",
-    "vue": "3.2.33"
+    "vue": "3.2.34"
   },
   "devDependencies": {
     "@mdi/font": "6.7.96",
