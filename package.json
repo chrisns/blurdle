@@ -42,7 +42,7 @@
     "vite": "2.9.9",
     "vitest": "0.13.0",
     "vue-gtag": "2.0.1",
-    "vue-tsc": "0.35.0",
+    "vue-tsc": "0.35.2",
     "vuetify": "3.0.0-beta.2"
   }
 }
