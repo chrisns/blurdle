@@ -43,6 +43,6 @@
     "vitest": "0.16.0",
     "vue-gtag": "2.0.1",
     "vue-tsc": "0.38.2",
-    "vuetify": "3.0.0-beta.4"
+    "vuetify": "3.0.0-beta.5"
   }
 }
