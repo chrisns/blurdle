@@ -16,7 +16,7 @@
     "vue": "3.2.37"
   },
   "devDependencies": {
-    "@mdi/font": "6.9.96",
+    "@mdi/font": "7.0.96",
     "@mdi/js": "6.9.96",
     "@rushstack/eslint-patch": "1.1.4",
     "@types/jsdom": "16.2.14",
